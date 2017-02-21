@@ -248,12 +248,38 @@ func sayHello(sayGreeting greeting: String = "Hey", toName name: String...) {
     }
 }
 
-var classNames = ("Chris", "Sally", "Hayley", "Pauline", "David")
-sayHello(toName: classNames)
+var classNames = ["Chris", "Sally", "Hayley", "Pauline", "David"]
+for name in classNames {
+    sayHello(toName: name)
+}
 
 
 
+func sort(numbers: inout [Int]) {
+    func reverse(first: inout Int, second: inout Int) {
+        let tmp = first
+        first = second
+        second = tmp
+    }
+    
+    var count = numbers.count
+    while count > 0 {
+        for var i in 1..<count {
+            if numbers[i] < numbers[i-1] {
+                reverse(first: &numbers[1], second: &numbers[i-1])
+            }
+        }
+        count -= 1
+    }
+}
 
+var nums = [6,3,2,4,5,6]
+
+sort(numbers: &nums)
+
+for value in nums {
+    print("--\(value)")
+}
 
 
 
