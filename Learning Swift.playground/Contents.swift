@@ -217,7 +217,6 @@ functionPlay(name: "Bobby")
 print(functionHello(name: "Chris"))
 
 
-
 var buyMore = ""
 func functionDefault(name: String, fruit: String = "Bananas", quantity: Int) -> Void {
     if quantity < 3 {
@@ -228,7 +227,6 @@ func functionDefault(name: String, fruit: String = "Bananas", quantity: Int) -> 
 
 functionDefault(name: "David", quantity: 5)
 functionDefault(name: "Pauline", fruit: "Oranges", quantity: 2)
-
 
 
 func functionTuple(name: String = "Chris") -> (name: String, height: Double, age: Int) {
@@ -252,7 +250,6 @@ var classNames = ["Chris", "Sally", "Hayley", "Pauline", "David"]
 for name in classNames {
     sayHello(toName: name)
 }
-
 
 
 func sort(numbers: inout [Int]) {
@@ -282,10 +279,36 @@ for value in nums {
 }
 
 
+// ------------ combining everything -------------- //
 
+func checkIPAddress(IPAddressToCheck ipaddress: String?) -> Bool {
+    
+    guard let ipaddress = ipaddress else {
+        return false
+    }
+    
+    let octets = ipaddress.characters.split{ $0 == "." }.map{ String($0) }
+    guard octets.count == 4 else {
+        return false
+    }
+    
+    func validOctet (octet: String) -> Bool {
+        guard let num = Int (String(octet)), num >= 0 && num < 256 else {
+            return false
+        }
+        return true
+    }
+    for octet in octets {
+        guard validOctet(octet: octet) else {
+            return false
+        }
+    }
+    
+    return true
+    
+}
 
-
-
+checkIPAddress(IPAddressToCheck: "192.168.0.1")
 
 
 
