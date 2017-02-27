@@ -81,6 +81,25 @@ public class EmployeeClass {
         self.salaryYear += amount
     }
     
+    
+    init() {
+        self.firstName = ""
+        self.lastName = ""
+        self.salaryYear = 0.0
+    }
+    
+    init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.salaryYear = 0.0
+    }
+    
+    init(firstName: String, lastName: String, salaryYear: Double) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.salaryYear = salaryYear
+    }
+    
 }
 
 
@@ -98,4 +117,7 @@ print(employeeCl.getFullName())
 print(employeeC.getFullName())
 
 print(employeeC.salaryYear)
+
+
+// ------------ playing with initializers -------------- //
 
