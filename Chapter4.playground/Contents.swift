@@ -310,8 +310,3 @@ func checkIPAddress(IPAddressToCheck ipaddress: String?) -> Bool {
 
 checkIPAddress(IPAddressToCheck: "192.168.0.1")
 
-
-
-
-
-
