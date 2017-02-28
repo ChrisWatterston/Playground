@@ -121,3 +121,4 @@ print(employeeC.salaryYear)
 
 // ------------ playing with initializers -------------- //
 
+var classInit = EmployeeClass(firstName: "Joe", lastName: "Done")
