@@ -26,13 +26,13 @@ class ViewController: UIViewController {
         
         for (index, animal) in animals.enumerated() {
             if let animal = animal as? AirAnimal {
-                print("Animal at \(index) is Air")
+                print("Animal at \(animal.name) is Air - \(index)")
             }
             if let animal = animal as? LandAnimal {
-                print("Animal at \(index) is Land")
+                print("Animal at \(animal.name) is Land - \(index)")
             }
             if let animal = animal as? SeaAnimal {
-                print("Animal at \(index) is Sea")
+                print("Animal at \(animal.name) is Sea - \(index)")
             }
         }
         
@@ -89,6 +89,7 @@ struct Programmer: Person, Occupation {
 
 protocol Animal {
     var hitPoints: Int {get set}
+    var name: String {get set}
 }
 
 extension Animal {
@@ -117,6 +118,7 @@ protocol AirAnimal: Animal {
 }
 
 struct Lion: LandAnimal {
+    var name = "Lion"
     var hitPoints = 20
     let landAttack = true
     let landMovement = true
@@ -129,6 +131,7 @@ struct Lion: LandAnimal {
 }
 
 struct Alligator: LandAnimal, SeaAnimal {
+    var name = "Alligator"
     var hitPoints = 35
     let landAttack = true
     let landMovement = true
